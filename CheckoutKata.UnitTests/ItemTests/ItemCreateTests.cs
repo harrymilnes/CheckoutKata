@@ -1,4 +1,5 @@
-﻿using CheckoutKata.Core.Models;
+﻿using CheckoutKata.Core.Constants;
+using CheckoutKata.Core.Models;
 using NUnit.Framework;
 
 namespace CheckoutKata.UnitTests.ItemTests
@@ -10,8 +11,8 @@ namespace CheckoutKata.UnitTests.ItemTests
         public void PriceIsSet()
         {
             //Arrange
-            var itemPrice = 10;
-            var itemSku = "A";
+            const int itemPrice = 10;
+            const string itemSku = ItemConstants.ItemASku;
 
             //Act
             var createdItem = Item.Create(itemPrice, itemSku);
@@ -24,8 +25,8 @@ namespace CheckoutKata.UnitTests.ItemTests
         public void SkuIsSet()
         {
             //Arrange
-            var itemPrice = 10;
-            var itemSku = "A";
+            const int itemPrice = 10;
+            const string itemSku = ItemConstants.ItemASku;
 
             //Act
             var createdItem = Item.Create(itemPrice, itemSku);

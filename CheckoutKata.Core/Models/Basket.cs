@@ -6,6 +6,10 @@ namespace CheckoutKata.Core.Models
 {
     public class Basket
     {
+        public readonly List<IPromotion> Promotions = new();
+        public List<Item> Items { get; } = new();
+        public decimal TotalPrice => GetTotalPriceFromItems();
+        
         public static Basket Create()
         {
             return new Basket();
@@ -15,10 +19,6 @@ namespace CheckoutKata.Core.Models
         {
             Items.Add(item);
         }
-
-        public List<IPromotion> Promotions = new List<IPromotion>();
-        public List<Item> Items { get; private set; } = new List<Item>();
-        public decimal TotalPrice => GetTotalPriceFromItems();
 
         private decimal GetTotalPriceFromItems()
         {

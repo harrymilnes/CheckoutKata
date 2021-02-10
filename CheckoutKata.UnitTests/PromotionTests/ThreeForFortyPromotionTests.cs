@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using CheckoutKata.Core.Constants;
 using CheckoutKata.Core.Models;
 using CheckoutKata.Core.Promotions;
 using NUnit.Framework;
@@ -14,13 +16,14 @@ namespace CheckoutKata.UnitTests.PromotionTests
             //Arrange
             var itemList = new List<Item>
             {
-                Item.Create(15, "B"),
-                Item.Create(15, "B"),
-                Item.Create(15, "B")
+                Item.Create(ItemConstants.ItemBPrice, ItemConstants.ItemBSku),
+                Item.Create(ItemConstants.ItemBPrice, ItemConstants.ItemBSku),
+                Item.Create(ItemConstants.ItemBPrice, ItemConstants.ItemBSku)
             };
-     
+            var itemListTotal = itemList.Select(it => it.Price).Sum();
+
             //Act
-            var totalPriceAfterPromotion = new ThreeForFortyPromotion().Process(45, itemList);
+            var totalPriceAfterPromotion = new ThreeForFortyPromotion().Process(itemListTotal, itemList);
 
             //Assert
             Assert.AreEqual(40, totalPriceAfterPromotion);

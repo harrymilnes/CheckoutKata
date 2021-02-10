@@ -1,4 +1,5 @@
-﻿using CheckoutKata.Core.Models;
+﻿using CheckoutKata.Core.Constants;
+using CheckoutKata.Core.Models;
 using NUnit.Framework;
 
 namespace CheckoutKata.UnitTests.BasketTests
@@ -11,7 +12,7 @@ namespace CheckoutKata.UnitTests.BasketTests
         {
             //Arrange
             var basket = Basket.Create();
-            var item = Item.Create(10, "A");
+            var item = Item.Create(ItemConstants.ItemAPrice, ItemConstants.ItemASku);
             
             //Act
             basket.AddItem(item);
