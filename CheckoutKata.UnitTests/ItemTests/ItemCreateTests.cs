@@ -1,7 +1,7 @@
 ﻿using CheckoutKata.Core.Models;
 using NUnit.Framework;
 
-namespace CheckoutKata.UnitTests.BasketTests
+namespace CheckoutKata.UnitTests.ItemTests
 {
     [TestFixture]
     public class ItemCreateTests
