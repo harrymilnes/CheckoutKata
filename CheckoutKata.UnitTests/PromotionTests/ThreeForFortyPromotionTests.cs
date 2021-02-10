@@ -6,10 +6,10 @@ using NUnit.Framework;
 namespace CheckoutKata.UnitTests.PromotionTests
 {
     [TestFixture]
-    public class PromotionTests
+    public class ThreeForFortyPromotionTests
     {
         [Test]
-        public void ThreeForFortyPromotion_ReturnsBundlePrice()
+        public void ThreeForFortyPromotion_ReturnsTotalDiscountedPrice()
         {
             //Arrange
             var itemList = new List<Item>
