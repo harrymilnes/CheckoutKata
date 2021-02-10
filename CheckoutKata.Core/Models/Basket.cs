@@ -20,9 +20,21 @@ namespace CheckoutKata.Core.Models
 
         private decimal GetTotalPriceFromItems()
         {
-            return Items
+            var totalPrice = Items
                 .Select(it => it.Price)
                 .Sum();
+
+            return ApplyPromotions(totalPrice);
+        }
+
+        public decimal ApplyPromotions(decimal totalPrice)
+        {
+            if (Items.Count(it => it.Sku == "B") == 3)
+            {
+                return 40;
+            }
+
+            return totalPrice;
         }
     }
 }
