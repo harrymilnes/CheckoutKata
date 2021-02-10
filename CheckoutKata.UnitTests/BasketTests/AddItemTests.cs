@@ -13,7 +13,7 @@ namespace CheckoutKata.UnitTests.BasketTests
             var basket = Basket.Create();
 
             //Act
-            basket.AddItem(Item.Create(10));
+            basket.AddItem(Item.Create(10, "A"));
 
             //Assert
             Assert.IsNotEmpty(basket.Items);
@@ -24,7 +24,7 @@ namespace CheckoutKata.UnitTests.BasketTests
         {
             //Arrange
             var basket = Basket.Create();
-            var item = Item.Create(10);
+            var item = Item.Create(10, "A");
             
             //Act
             basket.AddItem(item);

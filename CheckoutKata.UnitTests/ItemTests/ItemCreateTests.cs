@@ -11,12 +11,27 @@ namespace CheckoutKata.UnitTests.ItemTests
         {
             //Arrange
             var itemPrice = 10;
+            var itemSku = "A";
 
             //Act
-            var createdItem = Item.Create(itemPrice);
+            var createdItem = Item.Create(itemPrice, itemSku);
 
             //Assert
             Assert.AreEqual(itemPrice, createdItem.Price);
+        }
+        
+        [Test]
+        public void SkuIsSet()
+        {
+            //Arrange
+            var itemPrice = 10;
+            var itemSku = "A";
+
+            //Act
+            var createdItem = Item.Create(itemPrice, itemSku);
+
+            //Assert
+            Assert.AreEqual(itemSku, createdItem.Sku);
         }
     }
 }
