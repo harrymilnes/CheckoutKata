@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using CheckoutKata.Core.Promotions;
 
 namespace CheckoutKata.Core.Models
 {
@@ -20,21 +21,11 @@ namespace CheckoutKata.Core.Models
 
         private decimal GetTotalPriceFromItems()
         {
-            var totalPrice = Items
+            var basketTotalPrice = Items
                 .Select(it => it.Price)
                 .Sum();
 
-            return ApplyPromotions(totalPrice);
-        }
-
-        public decimal ApplyPromotions(decimal totalPrice)
-        {
-            if (Items.Count(it => it.Sku == "B") == 3)
-            {
-                return 40;
-            }
-
-            return totalPrice;
+            return ThreeForFortyPromotion.Process(basketTotalPrice, Items);
         }
     }
 }
