@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace CheckoutKata.Core.Models
 {
@@ -15,5 +16,13 @@ namespace CheckoutKata.Core.Models
         }
 
         public List<Item> Items { get; private set; } = new List<Item>();
+        public decimal TotalPrice => GetTotalPriceFromItems();
+
+        private decimal GetTotalPriceFromItems()
+        {
+            return Items
+                .Select(it => it.Price)
+                .Sum();
+        }
     }
 }
