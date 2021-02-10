@@ -31,5 +31,10 @@ namespace CheckoutKata.Core.Models
 
             return totalPrice;
         }
+
+        public void AddPromotion(IPromotion promotion)
+        {
+            Promotions.Add(promotion);
+        }
     }
 }
