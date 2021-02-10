@@ -16,16 +16,20 @@ namespace CheckoutKata.Core.Models
             Items.Add(item);
         }
 
+        public List<IPromotion> Promotions = new List<IPromotion>();
         public List<Item> Items { get; private set; } = new List<Item>();
         public decimal TotalPrice => GetTotalPriceFromItems();
 
         private decimal GetTotalPriceFromItems()
         {
-            var basketTotalPrice = Items
+            decimal totalPrice = Items
                 .Select(it => it.Price)
                 .Sum();
 
-            return ThreeForFortyPromotion.Process(basketTotalPrice, Items);
+            foreach (var promotion in Promotions)
+                totalPrice = promotion.Process(totalPrice, Items);
+
+            return totalPrice;
         }
     }
 }

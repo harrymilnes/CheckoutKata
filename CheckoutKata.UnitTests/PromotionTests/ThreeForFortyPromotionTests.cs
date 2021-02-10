@@ -20,7 +20,7 @@ namespace CheckoutKata.UnitTests.PromotionTests
             };
      
             //Act
-            var totalPriceAfterPromotion = ThreeForFortyPromotion.Process(45, itemList);
+            var totalPriceAfterPromotion = new ThreeForFortyPromotion().Process(45, itemList);
 
             //Assert
             Assert.AreEqual(40, totalPriceAfterPromotion);

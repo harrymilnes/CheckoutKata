@@ -19,7 +19,7 @@ namespace CheckoutKata.UnitTests.PromotionTests
             };
      
             //Act
-            var totalPriceAfterPromotion = PercentageOffPromotion.Process(110, itemList);
+            var totalPriceAfterPromotion = new PercentageOffPromotion().Process(110, itemList);
 
             //Assert
             Assert.AreEqual(82.50, totalPriceAfterPromotion);
@@ -35,7 +35,7 @@ namespace CheckoutKata.UnitTests.PromotionTests
             };
      
             //Act
-            var totalPriceAfterPromotion = PercentageOffPromotion.Process(55, itemList);
+            var totalPriceAfterPromotion =  new PercentageOffPromotion().Process(55, itemList);
 
             //Assert
             Assert.AreEqual(55, totalPriceAfterPromotion);
@@ -54,7 +54,7 @@ namespace CheckoutKata.UnitTests.PromotionTests
             };
      
             //Act
-            var totalPriceAfterPromotion = PercentageOffPromotion.Process(220, itemList);
+            var totalPriceAfterPromotion =  new PercentageOffPromotion().Process(220, itemList);
 
             //Assert
             Assert.AreEqual(110, totalPriceAfterPromotion);

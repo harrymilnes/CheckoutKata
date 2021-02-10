@@ -4,9 +4,9 @@ using CheckoutKata.Core.Models;
 
 namespace CheckoutKata.Core.Promotions
 {
-    public class ThreeForFortyPromotion
+    public class ThreeForFortyPromotion : IPromotion
     {
-        public static decimal Process(decimal totalPrice, IEnumerable<Item> items)
+        public decimal Process(decimal totalPrice, IEnumerable<Item> items)
         {
             var itemsTotalPrice = items
                 .Where(it => it.Sku == "B")
