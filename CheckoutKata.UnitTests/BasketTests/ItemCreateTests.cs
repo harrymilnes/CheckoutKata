@@ -4,19 +4,19 @@ using NUnit.Framework;
 namespace CheckoutKata.UnitTests.BasketTests
 {
     [TestFixture]
-    public class AddItemTests
+    public class ItemCreateTests
     {
         [Test]
-        public void AddItem()
+        public void PriceIsSet()
         {
             //Arrange
-            var basket = Basket.Create();
+            var itemPrice = 10;
 
             //Act
-            basket.AddItem(Item.Create(10));
+            var createdItem = Item.Create(itemPrice);
 
             //Assert
-            Assert.IsNotEmpty(basket.Items);
+            Assert.AreEqual(itemPrice, createdItem.Price);
         }
     }
 }

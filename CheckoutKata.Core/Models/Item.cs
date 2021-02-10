@@ -2,9 +2,14 @@
 {
     public class Item
     {
-        public static Item Create()
+        public static Item Create(int price)
         {
-            return new Item();
+            return new Item
+            {
+                Price = price
+            };
         }
+
+        public int Price { get; private set; }
     }
 }
